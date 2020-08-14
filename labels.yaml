@@ -1,0 +1,5 @@
+general:
+  someCategory:
+    someLabel:
+      ru: "ru"
+      en: "en"

@@ -1,0 +1,86 @@
+name:                OrangeryWebsite
+version:             0.1.0.0
+github:              eehah5ru/OrangeryWebsite
+license:             BSD3
+author:              nicolay spesivtsev
+maintainer:          nicola.spesivcev@gmail.com
+copyright:           nicolay spesivstev
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on Github at <https://github.com/eehah5ru/OrangeryWebsite#readme>
+
+dependencies:
+- base >= 4.11 && < 10
+- rio >= 0.1.12.0
+- hakyll == 4.13.*
+- hakyll-sass == 0.2.*
+- data-default
+- hsass  == 0.8.0
+- aeson
+- bytestring
+- string-conversions
+- filepath
+- MissingH
+- binary
+- text
+- attoparsec
+- mtl
+- transformers
+- errors
+- directory
+- colour
+- pandoc
+- cache
+- hashable
+- raw-strings-qq
+- random
+- containers
+- rainbow == 0.30.0.2
+- yaml
+
+ghc-options:
+- -Wall
+- -Wcompat
+- -Widentities
+- -Wincomplete-record-updates
+- -Wincomplete-uni-patterns
+- -Wpartial-fields
+- -Wredundant-constraints
+
+library:
+  source-dirs: src
+
+executables:
+  site:
+    main:                site.hs
+    source-dirs:         src
+    dependencies:
+    - OrangeryWebsite
+
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+
+# tests:
+#   OrangeryWebsite-test:
+#     main:                Spec.hs
+#     source-dirs:         test
+#     dependencies:
+#     - OrangeryWebsite
+#     - hspec
+
+#     ghc-options:
+#     - -threaded
+#     - -rtsopts
+#     - -with-rtsopts=-N

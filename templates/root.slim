@@ -1,0 +1,47 @@
+doctype html
+
+html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+  head
+    meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+    meta name="viewport" content="width=device-width, initial-scale=1"
+
+    meta property="og:title" content="Orangery | $title$"
+
+    = _if("og_image_url")
+      meta property="og:image" content="$og_image_url$"
+    = _endif
+
+    title
+      | Orangery | $title$
+
+    link href="/css/app.css?$revision$" rel="stylesheet" type="text/css"
+
+    / link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.1.1/motion-ui.min.css"
+
+    script type="text/javascript" src="/js/vendor/jquery.min.js"
+    script type="text/javascript" src="/js/vendor/lodash.min.js"
+
+    / script type="text/javascript" src="/js/vendor/jquery.mobile.custom.min.js"
+    / script type="text/javascript" src="/js/vendor/jquery.visible.min.js"
+    / script type="text/javascript" src="/js/vendor/jquery-deepest.js"
+    / script type="text/javascript" src="/js/vendor/modernizr.js"
+    / script type="text/javascript" src="/js/vendor/mobile-detect.min.js"
+    / script type="text/javascript" src="/js/vendor/mobile-detect-modernizr.js"
+    / script type="text/javascript" src="/js/vendor/what-input.js"
+    / script type="text/javascript" src="/js/vendor/motion-ui.min.js"
+    / script type="text/javascript" src="/js/vendor/foundation.min.js"
+    / script type="text/javascript" src="/js/vendor/foundation.orbit.js"
+    / script type="text/javascript" src="/js/vendor/d3-queue.js"
+    script type="text/javascript" src="/js/app.js?$revision$"
+
+  body
+    input type="hidden" id="lang" name="lang" data-lang="$lang$"
+    input type="hidden" id="revision" name="revision" data-revision="$revision$"
+
+    .bkg
+
+    a.lang-switch href="$otherLangUrl$"
+      | $otherLang$
+    section class="$canonicalName$ blocks"
+      article class="$canonicalName$ blocks"
+        '$body$

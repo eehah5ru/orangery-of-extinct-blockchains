@@ -1,0 +1,8 @@
+*~
+*.swp
+tarballs/
+.stack-work/
+/_cache/
+/_site/
+/OrangeryWebsite.cabal
+.DS_Store

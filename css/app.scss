@@ -1,0 +1,178 @@
+@charset 'utf-8';
+
+@import "app_settings";
+@import "foundation";
+
+@include foundation-everything;
+
+
+@mixin block-skew($base) {
+  $v1: 0deg + random($base);
+  $v2: 0deg + random($base);
+
+  transform: skew($v1, $v2);
+}
+
+@mixin block-background() {
+  $posX: 0% + random(100);
+  $posY: 0% + random(100);
+  background-image: radial-gradient(farthest-corner at $posX $posY,#fff 32%,#C86DD7 100%);
+}
+
+@mixin block-skew-classes($n, $base) {
+  @for $i from 0 to $n {
+    &.skew-#{$i} {
+      @include block-skew($base);
+    }
+  }
+}
+
+@mixin block-background-classes($n) {
+  @for $i from 0 to $n {
+    &.bkg-#{$i} {
+      @include block-background();
+    }
+  }
+}
+
+.lang-switch {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  text-align: right;
+  color: blue;
+  text-decoration: underline;
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-family: monospace;
+
+  border-color: blue;
+  border-width: 2px;
+  border-style: double;
+  padding: 0.3rem;
+  transform: skew(-10deg, -10deg);
+
+}
+
+article {
+  @extend .grid-x;
+  @extend .grid-margin-x;
+  margin-left: 1rem;
+  margin-right: 1rem;
+
+  > p {
+    @extend .cell;
+    @extend .small-6;
+
+    &:first-of-type {
+      margin-top: 2rem;
+    }
+  }
+
+  &.blocks {
+    align-items: center;
+
+    > div.block {
+      @extend .small-10;
+      @extend .medium-6;
+      @extend .large-6;
+      @extend .cell;
+
+      border: 2px solid red;
+      padding: 0.5rem;
+
+
+      // background-image: radial-gradient(35% 88%, #FFFFFF 32%, #C86DD7 100%);
+
+      box-shadow: 0 2px 40px 10px rgb(15, 255, 52), 0 2px 27px 25px #FF0054;
+
+      // mask-image: radial-gradient(black 34%,rgba(0, 0, 0, 0.3) 100%);
+
+      border-style: outset;
+      border-width: 0.2rem;
+      transform-origin: center;
+
+      // transform: skew(2deg, 2deg);
+
+      @include breakpoint (small only) {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      // @include breakpoint(medium) {
+      //   transform: skew(15deg, 15deg);
+      // }
+      // &.skew-0 {
+      //   @include block-skew(15deg);
+      // }
+
+      // &.skew-1 {
+      //   @include block-skew(15deg);
+      // }
+
+      // &.skew-2 {
+      //   @include block-skew(15deg);
+      // }
+
+      // &.skew-3 {
+      //   @include block-skew(15deg);
+      // }
+
+      // &.skew-4 {
+      //   @include block-skew(15deg);
+      // }
+
+      @include block-skew-classes(5, 20deg);
+      @include block-background-classes(5);
+
+
+      &.wide {
+        // @extend .medium-8;
+        // @extend .large-;
+      }
+
+      &.reader {
+        &.header {
+          @extend .medium-12;
+          @extend .large-12;
+
+          margin-top: 20vh;
+          margin-bottom: 20vh;
+
+          h2 {
+            font-size: xxx-large;
+            text-transform: uppercase;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+article.index {
+  // @include breakpoint(medium) {
+  //   margin-top: 0;
+  //   width: 50%;
+  // }
+}
+
+section.blocks {
+  // padding-top: 2rem;
+
+  @include breakpoint(medium) {
+    padding: 5vw;
+  }
+}
+
+body > .bkg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-image: url(/images/index-02.png);
+  background-size: cover;
+}
